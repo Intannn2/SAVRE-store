@@ -11,6 +11,16 @@ import pytz
 # Config Flask App
 app = Flask(__name__)
 app.secret_key = "secret_key"
+
+#open connection
+db = connector.connect(
+    user="websavre", 
+    password="Intanutami12345", 
+    host="webfpsavre.mysql.database.azure.com", 
+    port=3306, 
+    database="database"
+)
+
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(BASE_DIR, "instance", "database.db")}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
